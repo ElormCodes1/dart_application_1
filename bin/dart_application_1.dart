@@ -1,3 +1,7 @@
+// import 'dart:html';
+
+// import 'dart:html';
+
 import 'package:dart_application_1/dart_application_1.dart'
     as dart_application_1;
 import 'dart:math';
@@ -219,10 +223,28 @@ void main() {
   // print(studentDetails('Elorm Dokosi', 200, 'Gold Refinery Hall',
   //     programme: 'CE'));
   // print(elorm);
-  const people = ['chris', 'tiffani', 'pablo'];
-  people.forEach((person) {
-    print(wonderful(name: person));
-  });
+  // const people = ['chris', 'tiffani', 'pablo'];
+  // people.forEach((person) {
+  //   print(wonderful(name: person));
+  // });
+
+  // final triple = applyMultiplier(2);
+  // print(triple(6));
+
+  // var result = addNumber(12);
+  // print(result);
+
+  // final user = User();
+  // user.name = 'Ray';
+  // user.id = 42;
+  // print(user);
+  // print(user.toJson());
+
+  final user = User(42, 'Ray');
+  print(user);
+
+  final anonymousUser = User.anonymous();
+  print(anonymousUser);
 }
 
 // enum AudioState { playing, paused, stopped }
@@ -238,6 +260,50 @@ void main() {
 
 // String elorm = 'me';
 
-final wonderful = ({required String name, int numberPeople = 30}) {
-  return "You're wonderful, $name. $numberPeople people think so.";
-};
+// final wonderful = ({required String name, int numberPeople = 30}) {
+//   return "You're wonderful, $name. $numberPeople people think so.";
+// };
+
+// Function applyMultiplier(num multiplier) {
+//   return (num value) {
+//     return value * multiplier;
+//   };
+// }
+
+// addNumber(int original) {
+//   addValue(int newNumber) {
+//     return newNumber + original;
+//   }
+
+//   return addValue;
+// }
+
+class User {
+  User.anonymous() : this(0, 'anonymous');
+
+  User(this.id, this.name);
+
+  int id;
+  String name;
+
+  String toJson() {
+    return '{"id": $id, "name": "$name"}';
+  }
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name)';
+  }
+}
+// class password {
+//   String value = '';
+//   bool isValid() {
+//     return value.length > 8;
+//   }
+
+//   @override
+//   String toString() {
+//     return value;
+//   }
+// }
+
