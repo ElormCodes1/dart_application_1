@@ -1,6 +1,7 @@
 import 'dart:io';
 
 int pin = 1234;
+int oldPin = 0;
 
 String airtime() {
   return """
@@ -181,7 +182,27 @@ void main() {
         ? print('cash out is allowed.')
         : print('feature is in production.');
   } else if (inputOnMenu == 6) {
-    print(changeResetPin());
+    print(myWallet());
+    int inputOnMyWalletMenu = int.parse(stdin.readLineSync()!);
+    inputOnMyWalletMenu == 6
+        ? print(changeResetPin())
+        : print('feature is in production');
+
     int inputonChangeResetPinMenu = int.parse(stdin.readLineSync()!);
+    if (inputonChangeResetPinMenu == 1) {
+      print('Enter old pin.');
+      oldPin = int.parse(stdin.readLineSync()!);
+      oldPin == pin ? print('Enter new pin') : print('wrong pin');
+      pin = int.parse(stdin.readLineSync()!);
+      print('Pin succesfully changed.');
+    } else if (inputonChangeResetPinMenu == 2) {
+      print('Enter old pin.');
+      oldPin = int.parse(stdin.readLineSync()!);
+      oldPin == pin ? print('Enter new pin') : print('wrong pin');
+      pin = int.parse(stdin.readLineSync()!);
+      print('Pin succesfully changed.');
+    } else {
+      print('feature in production');
+    }
   }
 }
